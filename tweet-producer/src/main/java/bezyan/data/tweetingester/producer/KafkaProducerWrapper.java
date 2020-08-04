@@ -7,20 +7,20 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-public class MyKafkaProducer {
+public class KafkaProducerWrapper {
     private static final String BOOTSTRAP_SERVERS = "127.0.0.1:9092";
     private static final String ALL = "all";
     private static final String COMPRESSION_TYPE_SNAPPY = "snappy";
     private static final int BYTES_PER_KILOBYTE = 1024;
 
 
-    Logger logger = LoggerFactory.getLogger(MyKafkaProducer.class.getName());
+    Logger logger = LoggerFactory.getLogger(KafkaProducerWrapper.class.getName());
 
     private String topic;
 
     private KafkaProducer producer;
 
-    public MyKafkaProducer(String topic) {
+    public KafkaProducerWrapper(String topic) {
         // Create Produce properties
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);

@@ -11,6 +11,7 @@
     <modules>
         <module>tweet-producer</module>
         <module>tweet-consumer</module>
+        <module>common</module>
     </modules>
 
     <properties>

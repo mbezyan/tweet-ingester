@@ -51,6 +51,12 @@
             <artifactId>slf4j-jdk14</artifactId>
             <version>1.7.25</version>
         </dependency>
+
+        <dependency>
+            <groupId>bezyan.data.tweet-ingester</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 

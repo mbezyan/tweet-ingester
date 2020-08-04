@@ -1,34 +1,21 @@
 package bezyan.data.tweetingester.consumer;
 
+import bezyan.data.tweetingester.common.PropertiesUtil;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.impl.client.BasicCredentialsProvider;
+
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Properties;
 
 public class ElasticsearchClient {
     public static RestHighLevelClient createClient() {
-        FileReader reader = null;
-        try {
-            reader = new FileReader("tweet-consumer/src/main/resources/elasticsearch.properties");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("Unable to read properties file", e);
-        }
-
-        Properties p = new Properties();
-        try {
-            p.load(reader);
-        } catch (IOException e) {
-            throw new RuntimeException("Unable to load properties from file", e);
-        }
+        Properties p = PropertiesUtil.getPropertiesFromFile("tweet-consumer/src/main/resources/elasticsearch.properties");
 
         String hostname = p.getProperty("elasticsearch.hostname");
         String username = p.getProperty("elasticsearch.username");

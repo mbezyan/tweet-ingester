@@ -1,5 +1,6 @@
 package bezyan.data.tweetingester.producer;
 
+import bezyan.data.tweetingester.common.PropertiesUtil;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
@@ -21,9 +22,11 @@ public class KafkaProducerWrapper {
     private KafkaProducer producer;
 
     public KafkaProducerWrapper(String topic) {
+        Properties p = PropertiesUtil.getPropertiesFromFile("src/main/resources/kafka.properties");
+
         // Create Produce properties
         Properties properties = new Properties();
-        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
+        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, p.getProperty("kafka.bootstrap.servers"));
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 

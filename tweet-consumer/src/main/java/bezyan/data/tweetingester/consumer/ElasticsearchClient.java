@@ -30,9 +30,9 @@ public class ElasticsearchClient {
             throw new RuntimeException("Unable to load properties from file", e);
         }
 
-        String hostname = p.getProperty("hostname");
-        String username = p.getProperty("username");
-        String password = p.getProperty("password");
+        String hostname = p.getProperty("elasticsearch.hostname");
+        String username = p.getProperty("elasticsearch.username");
+        String password = p.getProperty("elasticsearch.password");
 
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(username, password));

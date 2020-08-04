@@ -21,7 +21,6 @@ public class TweetConsumerIndexer {
     private static final Logger logger = LoggerFactory.getLogger(TweetConsumerIndexer.class.getName());
 
     public static void main (String[] args) throws IOException {
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
         final String consumerTopic = "weather_tweets_topic3";
         final String consumerGroupId = "weather_tweets_application3";
 
